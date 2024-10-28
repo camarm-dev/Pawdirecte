@@ -1,4 +1,4 @@
-import { GradesOverview } from "~/models";
+import type { GradesOverview } from "~/models";
 import { decodeGradeValue } from "./grade-value";
 
 export const buildOverview = (data: any): GradesOverview => {
@@ -8,7 +8,7 @@ export const buildOverview = (data: any): GradesOverview => {
   const showYearlyPeriod = data.parametrage.notePeriodeAnnuelle;
 
   for (const period of data.periodes) {
-    if (!period.annuel && !showYearlyPeriod) {
+    if (!(showYearlyPeriod === false && period.yearly === true)) {
       const subjects = period.ensembleMatieres.disciplines;
       overview[period.idPeriode] = {
         classAverage: decodeGradeValue(period.ensembleMatieres.moyenneClasse),

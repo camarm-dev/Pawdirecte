@@ -1,4 +1,4 @@
-import { GradeValue } from "./grade-value";
+import type { GradeValue } from "./grade-value";
 
 export type SubjectOverview = {
   classAverage: GradeValue

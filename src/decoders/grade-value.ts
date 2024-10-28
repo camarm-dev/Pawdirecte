@@ -1,6 +1,6 @@
 import { GradeValue, GradeKind } from "~/models";
 
-export const decodeGradeValue = (value: string, noteSur: number = 20): GradeValue => {
+export const decodeGradeValue = (value: string): GradeValue => {
   if (!value) return {
     kind: GradeKind.Error,
     points: 0

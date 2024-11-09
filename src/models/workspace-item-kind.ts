@@ -3,4 +3,5 @@ export const WorkspaceItemKind = {
   //OTHER ?
 } as const;
 
-export type WorkspaceItemKind = typeof WorkspaceItemKind[keyof typeof WorkspaceItemKind];
+export type WorkspaceItemKind =
+  (typeof WorkspaceItemKind)[keyof typeof WorkspaceItemKind];

@@ -1,4 +1,8 @@
-import { defaultFetcher, type Fetcher, type Request as UnsafeRequest } from "@literate.ink/utilities";
+import {
+  type Fetcher,
+  type Request as UnsafeRequest,
+  defaultFetcher
+} from "@literate.ink/utilities";
 import { Response } from "./response";
 
 export class Request {
@@ -7,29 +11,29 @@ export class Request {
   public method: string | undefined;
   public content: string | undefined;
 
-  public constructor (path: string) {
-    this.url = new URL("https://api.ecoledirecte.com/v3" + path);
+  public constructor(path: string) {
+    this.url = new URL(`https://api.ecoledirecte.com/v3${path}`);
     this.headers = { "User-Agent": "EDMOBILE" };
   }
 
-  public setToken (token: string): Request {
+  public setToken(token: string): Request {
     this.headers["X-Token"] = token;
     return this;
   }
 
-  public addVersionURL (): Request {
+  public addVersionURL(): Request {
     this.url.searchParams.set("v", "6.17.0");
     return this;
   }
 
-  public setFormData (body: any): Request {
+  public setFormData(body: any): Request {
     this.method = "POST";
-    this.content = "data=" + JSON.stringify(body);
+    this.content = `data=${JSON.stringify(body)}`;
     this.headers["Content-Type"] = "application/x-www-form-urlencoded";
     return this;
   }
 
-  public async send (fetcher: Fetcher = defaultFetcher): Promise<Response> {
+  public async send(fetcher: Fetcher = defaultFetcher): Promise<Response> {
     const response = await fetcher(this as UnsafeRequest);
     return new Response(response);
   }

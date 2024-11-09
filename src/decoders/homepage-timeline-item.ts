@@ -1,5 +1,5 @@
-import type { HomepageTimelineItem } from "~/models";
 import { decode } from "js-base64";
+import type { HomepageTimelineItem } from "~/models";
 import { decodeFrenchDate } from "./dates";
 
 export const decodeHomepageTimelineItem = (item: any): HomepageTimelineItem => {

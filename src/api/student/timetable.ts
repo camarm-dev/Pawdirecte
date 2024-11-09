@@ -1,6 +1,11 @@
-import { type Session, type Account, SessionTokenRequired, type TimetableItem } from "~/models";
-import { decodeTimetableItem } from "~/decoders/timetable-item";
 import { Request } from "~/core/request";
+import { decodeTimetableItem } from "~/decoders/timetable-item";
+import {
+  type Account,
+  type Session,
+  SessionTokenRequired,
+  type TimetableItem
+} from "~/models";
 
 /**
  * @param startDate Timetable starting from this date.
@@ -12,8 +17,7 @@ export const studentTimetable = async (
   startDate: Date,
   endDate = startDate
 ): Promise<Array<TimetableItem>> => {
-  if (!session.token)
-    throw new SessionTokenRequired();
+  if (!session.token) throw new SessionTokenRequired();
 
   const request = new Request(`/E/${account.id}/emploidutemps.awp?verbe=get`)
     .addVersionURL()
@@ -27,5 +31,10 @@ export const studentTimetable = async (
   const response = await request.send(session.fetcher);
   session.token = response.token;
 
-  return response.data.map(decodeTimetableItem).sort((item: TimetableItem, item2: TimetableItem) => new Date(item.startDate).getTime() > new Date(item2.startDate).getTime());
+  return response.data
+    .map(decodeTimetableItem)
+    .sort(
+      (item: TimetableItem, item2: TimetableItem) =>
+        new Date(item.startDate).getTime() > new Date(item2.startDate).getTime()
+    );
 };

@@ -16,6 +16,12 @@ export const decodeAttendanceItem = (item: any): AttendanceItem => {
     onlineJustification: item.justifieEd,
     todo: item.aFaire,
     kind: item.typeElement,
-    displayDate: item.displayDate !== "" ? item.displayDate : item.dateDeroulement.toLowerCase().replace("<br>", " ").replace("déroulement prévu ", "")
+    displayDate:
+      item.displayDate !== ""
+        ? item.displayDate
+        : item.dateDeroulement
+          .toLowerCase()
+          .replace("<br>", " ")
+          .replace("déroulement prévu ", "")
   };
 };

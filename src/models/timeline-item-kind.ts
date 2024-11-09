@@ -9,4 +9,5 @@ export const TimelineItemKind = {
   Document: "Document"
 } as const;
 
-export type TimelineItemKind = typeof TimelineItemKind[keyof typeof TimelineItemKind];
+export type TimelineItemKind =
+  (typeof TimelineItemKind)[keyof typeof TimelineItemKind];

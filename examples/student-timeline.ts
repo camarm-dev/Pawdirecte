@@ -3,11 +3,14 @@ import { studentHomepageTimeline, studentTimeline } from "../src";
 import { ExampleCredentialsError, credentials } from "./_credentials";
 import { loginUsingCredentials } from "./_login-using-crendentials";
 
-void async function main () {
+void (async function main() {
   if (!credentials.student_username || !credentials.student_password)
     throw new ExampleCredentialsError("student");
 
-  const { session, account } = await loginUsingCredentials(credentials.student_username, credentials.student_password);
+  const { session, account } = await loginUsingCredentials(
+    credentials.student_username,
+    credentials.student_password
+  );
   const timeline = await studentTimeline(session, account);
   const homepageTimeline = await studentHomepageTimeline(session, account);
 
@@ -17,22 +20,23 @@ void async function main () {
     timeline.forEach((item) => {
       console.log("---");
 
-      console.log(item.title || "(no title)", `(${item.elementKind} @ ${item.elementID})`);
+      console.log(
+        item.title || "(no title)",
+        `(${item.elementKind} @ ${item.elementID})`
+      );
       console.log("Publish date:", item.date.toLocaleString());
       console.log("Description:", item.description || "(no description)");
 
       console.log("Content:\n");
       console.log(item.content || "(no content)");
     });
-  }
-  else {
+  } else {
     console.log("No timeline items found.");
   }
 
   console.log("--- HOMEPAGE TIMELINE");
 
   if (homepageTimeline.length > 0) {
-
     homepageTimeline.forEach((item) => {
       console.log("---");
 
@@ -44,8 +48,7 @@ void async function main () {
       console.log("Content:\n");
       console.log(item.content || "(no content)");
     });
-  }
-  else {
+  } else {
     console.log("No homepage timeline items found.");
   }
-}();
+})();

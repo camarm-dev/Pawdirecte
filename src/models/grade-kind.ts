@@ -7,4 +7,4 @@ export const GradeKind = {
 } as const;
 // Stolen from pawnote
 
-export type GradeKind = typeof GradeKind[keyof typeof GradeKind];
+export type GradeKind = (typeof GradeKind)[keyof typeof GradeKind];

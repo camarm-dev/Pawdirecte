@@ -12,7 +12,9 @@ export const buildOverview = (data: any): GradesOverview => {
       const subjects = period.ensembleMatieres.disciplines;
       overview[period.idPeriode] = {
         classAverage: decodeGradeValue(period.ensembleMatieres.moyenneClasse),
-        overallAverage: showStudentAverage ? decodeGradeValue(period.ensembleMatieres.moyenneGenerale) : getOverallAverageFromClassAverage(period),
+        overallAverage: showStudentAverage
+          ? decodeGradeValue(period.ensembleMatieres.moyenneGenerale)
+          : getOverallAverageFromClassAverage(period),
         subjects: []
       };
       for (const subject of subjects) {
@@ -23,7 +25,9 @@ export const buildOverview = (data: any): GradesOverview => {
           isChildSubject: subject.sousMatiere,
           // TODO
           color: "string",
-          classAverage: decodeGradeValue(subject.moyenneClasse?.replace(",", ".")),
+          classAverage: decodeGradeValue(
+            subject.moyenneClasse?.replace(",", ".")
+          ),
           maxAverage: decodeGradeValue(subject.moyenneMax?.replace(",", ".")),
           minAverage: decodeGradeValue(subject.moyenneMin?.replace(",", ".")),
           studentAverage: decodeGradeValue(subject.moyenne?.replace(",", ".")),
@@ -36,16 +40,15 @@ export const buildOverview = (data: any): GradesOverview => {
 };
 
 function getOverallAverageFromClassAverage(period: any) {
-
   let count = 0;
   let sum = 0;
 
   const subjects = period.ensembleMatieres.disciplines;
 
   for (const subject of subjects) {
-    if (subject.moyenne !== ""){
+    if (subject.moyenne !== "") {
       const grade = decodeGradeValue(subject.moyenne?.replace(",", ".")).points;
-      const coef = subject.coef === 0 ? 1: subject.coef;
+      const coef = subject.coef === 0 ? 1 : subject.coef;
       count += coef;
       sum += grade * coef;
     }

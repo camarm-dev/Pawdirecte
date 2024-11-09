@@ -1,9 +1,9 @@
-import {decodeBarcode, decodeReservation } from "~/decoders/cantine";
-import {Account, CantineBarcode, CantineReservations } from "~/models";
+import { decodeBarcode, decodeReservation } from "~/decoders/cantine";
+import type { Account, CantineBarcode, CantineReservations } from "~/models";
 
 type CantineResponse = Readonly<{
-  reservation?: CantineReservations
-  barcode?: CantineBarcode
+  reservation?: CantineReservations;
+  barcode?: CantineBarcode;
 }>;
 
 /**
@@ -12,9 +12,12 @@ type CantineResponse = Readonly<{
 export const studentCantine = async (
   account: Account
 ): Promise<CantineResponse> => {
-
-  const reservations = account.modules.find((m: any) => m.code === "RESERVATIONS");
-  const barcode = account.modules.find((m: any) => m.code === "CANTINE_BARCODE");
+  const reservations = account.modules.find(
+    (m: any) => m.code === "RESERVATIONS"
+  );
+  const barcode = account.modules.find(
+    (m: any) => m.code === "CANTINE_BARCODE"
+  );
 
   return {
     reservation: reservations.enable ?? decodeReservation(reservations),

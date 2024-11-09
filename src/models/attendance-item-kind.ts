@@ -4,4 +4,5 @@ export const AttendanceItemKind = {
   ABSENCE: "Absence"
 } as const;
 
-export type AttendanceItemKind = typeof AttendanceItemKind[keyof typeof AttendanceItemKind];
+export type AttendanceItemKind =
+  (typeof AttendanceItemKind)[keyof typeof AttendanceItemKind];

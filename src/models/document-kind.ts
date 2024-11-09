@@ -8,4 +8,4 @@ export const DocumentKind = {
   Other: ""
 } as const;
 
-export type DocumentKind = typeof DocumentKind[keyof typeof DocumentKind];
+export type DocumentKind = (typeof DocumentKind)[keyof typeof DocumentKind];

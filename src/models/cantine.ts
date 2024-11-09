@@ -15,19 +15,18 @@ export const ReservationMeals = {
 };
 
 export type CantineReservations = Readonly<{
-  badge: number
+  badge: number;
   /**
    * @example "Externe"
    */
-  diet: string
+  diet: string;
   meals: {
     [key in keyof typeof ReservationWeekdays]: {
-      [key in keyof typeof ReservationMeals]: boolean
-    }
-  }
+      [key in keyof typeof ReservationMeals]: boolean;
+    };
+  };
 }>;
 
-
 export type CantineBarcode = Readonly<{
-  badgeNumber: number
+  badgeNumber: number;
 }>;

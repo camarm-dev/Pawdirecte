@@ -20,10 +20,10 @@ export type ComingHomework = Readonly<{
 }>;
 
 export type ClassSubject = Readonly<{
-  date: Date,
-  id: number,
-  subject: string,
-  teacher: string,
-  content: string,
-  attachments: Document[]
+  date: Date;
+  id: number;
+  subject: string;
+  teacher: string;
+  content: string;
+  attachments: Document[];
 }>;

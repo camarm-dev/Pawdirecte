@@ -1,5 +1,5 @@
-import { config } from "dotenv";
 import { join } from "node:path";
+import { config } from "dotenv";
 // Load the `.env` file configuration.
 config({ path: join(__dirname, ".env") });
 
@@ -13,6 +13,8 @@ export const credentials = {
 
 export class ExampleCredentialsError extends Error {
   constructor(type: "student" | "parent") {
-    super(`You need to provide credentials in the \`.env\` file for the ${type.toUpperCase()} account.`);
+    super(
+      `You need to provide credentials in the \`.env\` file for the ${type.toUpperCase()} account.`
+    );
   }
 }

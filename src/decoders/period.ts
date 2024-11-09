@@ -1,4 +1,4 @@
-import { Period } from "~/models";
+import type { Period } from "~/models";
 
 export const decodePeriod = (item: any): Period => {
   return {

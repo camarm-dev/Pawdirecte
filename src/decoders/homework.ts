@@ -1,6 +1,6 @@
-import { decodeDocument } from "./document";
 import { decode } from "js-base64";
 import type { ClassSubject, ComingHomework, Homework } from "~/models";
+import { decodeDocument } from "./document";
 
 export const decodeHomework = (item: any): Homework => {
   return {
@@ -24,7 +24,6 @@ export const decodeComingHomework = (item: any): ComingHomework => {
     createdDate: new Date(item.donneLe)
   };
 };
-
 
 /**
  *

@@ -30,7 +30,8 @@ export class Response {
         getHeaderFromResponse(response, "x-code")!,
         10
       );
-    } else {
+    }
+    else {
       const content = JSON.parse(response.content);
 
       this.status = content.code;

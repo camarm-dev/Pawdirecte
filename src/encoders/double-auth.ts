@@ -5,8 +5,8 @@ export const encodeDoubleAuth = (
 ): any => {
   return double_auth
     ? {
-        cn: double_auth.name,
-        cv: double_auth.value
-      }
+      cn: double_auth.name,
+      cv: double_auth.value
+    }
     : void 0;
 };

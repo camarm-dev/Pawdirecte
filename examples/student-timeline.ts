@@ -30,7 +30,8 @@ void (async function main() {
       console.log("Content:\n");
       console.log(item.content || "(no content)");
     });
-  } else {
+  }
+  else {
     console.log("No timeline items found.");
   }
 
@@ -48,7 +49,8 @@ void (async function main() {
       console.log("Content:\n");
       console.log(item.content || "(no content)");
     });
-  } else {
+  }
+  else {
     console.log("No homepage timeline items found.");
   }
 })();

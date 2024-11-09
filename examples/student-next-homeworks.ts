@@ -37,7 +37,8 @@ void (async function main() {
     console.log(
       `--> [${homework.id}] ${homework.subject} (${homework.done ? "Done" : "Todo"})`
     );
-  } else {
+  }
+  else {
     console.log("Error");
   }
 })();

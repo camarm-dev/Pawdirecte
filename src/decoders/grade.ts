@@ -13,7 +13,7 @@ export const decodeGrade = (item: any): Grade => {
     examType: item.typeDevoir,
     max: decodeGradeValue(item.maxClasse),
     min: decodeGradeValue(item.minClasse),
-    outOf: item.noteSur,
+    outOf: item.noteSur.replaceAll(",", "."),
     period: {
       id: item.codePeriode,
       // TODO: fill name

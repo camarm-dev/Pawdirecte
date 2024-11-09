@@ -39,15 +39,15 @@
 //   disciplinesSimulation: Array<unknown>;
 
 export type Period = Readonly<{
-  id: string
-  name: string
-  yearly: boolean
-  isMockExam: boolean
-  isEnded: boolean
-  startDate: Date
-  endDate: Date
-  councilDate?: Date
-  councilStartHour?: string
-  councilEndHour?: string
-  councilClassroom?: string
+  id: string;
+  name: string;
+  yearly: boolean;
+  isMockExam: boolean;
+  isEnded: boolean;
+  startDate: Date;
+  endDate: Date;
+  councilDate?: Date;
+  councilStartHour?: string;
+  councilEndHour?: string;
+  councilClassroom?: string;
 }>;

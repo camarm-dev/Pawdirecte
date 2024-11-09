@@ -3,7 +3,7 @@ import { accountEdforms } from "../src";
 import { ExampleCredentialsError, credentials } from "./_credentials";
 import { loginUsingCredentials } from "./_login-using-crendentials";
 
-void async function main () {
+void (async function main() {
   // Check the credentials.
   if (!credentials.student_username || !credentials.student_password)
     throw new ExampleCredentialsError("student");
@@ -16,4 +16,4 @@ void async function main () {
   const forms = await accountEdforms(session, account);
 
   console.log(forms);
-}();
+})();

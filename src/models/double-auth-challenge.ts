@@ -1,4 +1,4 @@
 export type DoubleAuthChallenge = Readonly<{
-  question: string
-  answers: string[]
+  question: string;
+  answers: string[];
 }>;

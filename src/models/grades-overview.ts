@@ -1,22 +1,22 @@
 import type { GradeValue } from "./grade-value";
 
 export type SubjectOverview = {
-  classAverage: GradeValue
-  overallAverage: GradeValue
+  classAverage: GradeValue;
+  overallAverage: GradeValue;
   subjects: {
-    name: string
-    id: string
-    childSubjectId: string
-    isChildSubject: boolean
-    color: string
-    classAverage: GradeValue
-    maxAverage: GradeValue
-    minAverage: GradeValue
-    studentAverage: GradeValue
-    outOf: GradeValue
-  }[]
+    name: string;
+    id: string;
+    childSubjectId: string;
+    isChildSubject: boolean;
+    color: string;
+    classAverage: GradeValue;
+    maxAverage: GradeValue;
+    minAverage: GradeValue;
+    studentAverage: GradeValue;
+    outOf: GradeValue;
+  }[];
 };
 
 export type GradesOverview = {
-  [key: string]: SubjectOverview
+  [key: string]: SubjectOverview;
 };

@@ -1,4 +1,4 @@
-import { APIReceivedMessageType } from "./message";
+import type { APIReceivedMessageType } from "./message";
 
 export type APIReceivedMessagesList = Readonly<{
   status: number;
@@ -37,5 +37,5 @@ export type APIReceivedMessagesList = Readonly<{
       messagesRecusNotReadCount: number;
       messagesDraftCount: number;
     };
-  }
+  };
 }>;

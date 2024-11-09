@@ -1,5 +1,5 @@
-import { WorkspaceItem } from "~/models";
 import { decode } from "js-base64";
+import type { WorkspaceItem } from "~/models";
 
 export const decodeWorkspace = (item: any): WorkspaceItem => {
   return {

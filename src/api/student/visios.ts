@@ -1,9 +1,11 @@
-import { type Account, type Session, SessionTokenRequired } from "~/models";
 import { Request } from "~/core/request";
+import { type Account, type Session, SessionTokenRequired } from "~/models";
 
-export const studentVisios = async (session: Session, account: Account): Promise<Array<unknown>> => {
-  if (!session.token)
-    throw new SessionTokenRequired();
+export const studentVisios = async (
+  session: Session,
+  account: Account
+): Promise<Array<unknown>> => {
+  if (!session.token) throw new SessionTokenRequired();
 
   const request = new Request(`/eleves/${account.id}/visios.awp?verbe=get`)
     .addVersionURL()

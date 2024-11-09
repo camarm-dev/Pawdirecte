@@ -5,7 +5,7 @@ import { decode, encode } from "js-base64";
  *
  * Escape function allow to transform encoded chars into utf-8 ones.
  * */
-export function decodeString(value: string, escapeString: boolean = true): string {
+export function decodeString(value: string, escapeString = true): string {
   const decoded = decode(value);
   if (escape && escapeString) {
     return decodeURIComponent(escape(decoded));

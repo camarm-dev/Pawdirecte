@@ -1,10 +1,17 @@
-import { type Account, type Session, SessionTokenRequired, type TimelineItem } from "~/models";
-import { decodeTimelineItem } from "~/decoders/timeline-item";
 import { Request } from "~/core/request";
+import { decodeTimelineItem } from "~/decoders/timeline-item";
+import {
+  type Account,
+  type Session,
+  SessionTokenRequired,
+  type TimelineItem
+} from "~/models";
 
-export const studentTimeline = async (session: Session, account: Account): Promise<Array<TimelineItem>> => {
-  if (!session.token)
-    throw new SessionTokenRequired();
+export const studentTimeline = async (
+  session: Session,
+  account: Account
+): Promise<Array<TimelineItem>> => {
+  if (!session.token) throw new SessionTokenRequired();
 
   const request = new Request(`/eleves/${account.id}/timeline.awp?verbe=get`)
     .addVersionURL()

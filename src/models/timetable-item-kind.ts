@@ -6,4 +6,5 @@ export const TimetableItemKind = {
   SANCTION: "SANCTION"
 } as const;
 
-export type TimetableItemKind = typeof TimetableItemKind[keyof typeof TimetableItemKind];
+export type TimetableItemKind =
+  (typeof TimetableItemKind)[keyof typeof TimetableItemKind];

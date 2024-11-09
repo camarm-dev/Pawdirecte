@@ -1,9 +1,11 @@
-import { type Account, type Session, SessionTokenRequired } from "~/models";
 import { Request } from "~/core/request";
+import { type Account, type Session, SessionTokenRequired } from "~/models";
 
-export const accountEdforms = async (session: Session, account: Account): Promise<Array<unknown>> => {
-  if (!session.token)
-    throw new SessionTokenRequired();
+export const accountEdforms = async (
+  session: Session,
+  account: Account
+): Promise<Array<unknown>> => {
+  if (!session.token) throw new SessionTokenRequired();
 
   const request = new Request("/edforms.awp?verbe=list")
     .addVersionURL()

@@ -1,10 +1,11 @@
-import { GradeValue, GradeKind } from "~/models";
+import { GradeKind, type GradeValue } from "~/models";
 
 export const decodeGradeValue = (value: string): GradeValue => {
-  if (!value) return {
-    kind: GradeKind.Error,
-    points: 0
-  };
+  if (!value)
+    return {
+      kind: GradeKind.Error,
+      points: 0
+    };
 
   switch (value) {
     case "Disp":
@@ -29,8 +30,7 @@ export const decodeGradeValue = (value: string): GradeValue => {
           kind: GradeKind.Grade,
           points: Number(value.replaceAll(",", "."))
         };
-      }
-      catch {
+      } catch {
         return {
           kind: GradeKind.Error,
           points: 0

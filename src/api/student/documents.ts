@@ -1,6 +1,6 @@
-import { type Document, SessionTokenRequired, type Session } from "~/models";
-import {Request} from "~/core/request";
+import { Request } from "~/core/request";
 import { decodeDocument } from "~/decoders/document";
+import { type Document, type Session, SessionTokenRequired } from "~/models";
 
 /**
  * @param archive "The year of document, if it's an archive; YYYY format."
@@ -9,12 +9,13 @@ export const studentDocuments = async (
   session: Session,
   archive = ""
 ): Promise<Document[]> => {
-  if (!session.token)
-    throw new SessionTokenRequired();
+  if (!session.token) throw new SessionTokenRequired();
 
-  const request = new Request(`/elevesDocuments.awp?verbe=get&archive=${archive}`)
+  const request = new Request(
+    `/elevesDocuments.awp?verbe=get&archive=${archive}`
+  )
     .addVersionURL()
-    .setFormData({forceDownload: 0})
+    .setFormData({ forceDownload: 0 })
     .setToken(session.token);
 
   const response = await request.send(session.fetcher);

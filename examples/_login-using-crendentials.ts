@@ -1,10 +1,20 @@
-import { type Session, login, initDoubleAuth, checkDoubleAuth, DoubleAuthRequired, setAccessToken } from "../src";
+import {
+  DoubleAuthRequired,
+  type Session,
+  checkDoubleAuth,
+  initDoubleAuth,
+  login,
+  setAccessToken
+} from "../src";
 
 // This is an identifier that'll be
 // linked to the token generated, should be very secure !
 export const uuid = "your-device-uuid";
 
-export async function loginUsingCredentials (username: string, password: string) {
+export async function loginUsingCredentials(
+  username: string,
+  password: string
+) {
   console.info("Initializing a session using credentials...");
   const session: Session = { username, device_uuid: uuid };
 
@@ -21,9 +31,11 @@ export async function loginUsingCredentials (username: string, password: string)
 
       // "prompt" is only available on Bun, you may need
       // something else for Node.js.
-      const answerIndex = prompt("Answer the question by providing the index of the answer :");
+      const answerIndex = prompt(
+        "Answer the question by providing the index of the answer :"
+      );
       if (!answerIndex) throw new Error("No answer provided.");
-      const answer = qcm.answers[parseInt(answerIndex)];
+      const answer = qcm.answers[Number.parseInt(answerIndex)];
 
       // Answer the question.
       if (await checkDoubleAuth(session, answer))
@@ -38,7 +50,13 @@ export async function loginUsingCredentials (username: string, password: string)
   // Grab the first account, and show some information.
   const account = accounts[0];
   setAccessToken(session, account);
-  console.log("Logged in to", account.firstName, account.lastName, "from", account.schoolName);
+  console.log(
+    "Logged in to",
+    account.firstName,
+    account.lastName,
+    "from",
+    account.schoolName
+  );
 
   return { session, account };
 }

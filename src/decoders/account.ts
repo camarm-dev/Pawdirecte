@@ -1,10 +1,13 @@
-import type { Account } from "~/models/account";
 import { decodeAccountKind } from "~/decoders/account-kind";
+import type { Account } from "~/models/account";
 
 export const decodeAccount = (account: any): Account => {
-  const gender = (typeof account.profile.sexe !== "undefined" && account.profile.sexe !== null)
-    ? account.profile.sexe
-    : account.civilite === "Mme" ? "F" : "M";
+  const gender =
+    typeof account.profile.sexe !== "undefined" && account.profile.sexe !== null
+      ? account.profile.sexe
+      : account.civilite === "Mme"
+        ? "F"
+        : "M";
 
   return {
     loginID: account.idLogin,

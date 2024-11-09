@@ -46,7 +46,7 @@ export const readMessage = async (session: Session, account: Account, id: number
     canAnswer: response.data.canAnswer,
     subject: response.data.subject,
     content: decode(response.data.content),
-    sender: response.data.from.name,
+    sender:  `${response.data.from.prenom} ${response.data.from.nom}`,
     files: response.data.files.map((file) => ({ // to download attachement GET /telechargement.awp?leTypeDeFichier={type}&fichierId={id}
       id: file.id,
       name: file.libelle,

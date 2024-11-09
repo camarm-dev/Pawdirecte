@@ -8,7 +8,7 @@ export const decodeMesssagesList = (message: APIReceivedMessageType): ReceivedMe
     read: message.read,
     subject: message.subject,
     date: new Date(message.date),
-    sender: message.from.name,
+    sender: `${message.from.prenom} ${message.from.nom}`,
     canAnswer: message.canAnswer,
     content: message.content,
     files: message.files.map((file) => ({ // to download attachement GET /telechargement.awp?leTypeDeFichier={type}&fichierId={id}

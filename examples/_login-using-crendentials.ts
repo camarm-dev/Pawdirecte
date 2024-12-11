@@ -6,7 +6,7 @@ import {
   login,
   setAccessToken
 } from "../src";
-import * as readline from 'readline';
+import * as readline from "readline";
 
 // This is an identifier that'll be
 // linked to the token generated, should be very secure !
@@ -18,7 +18,7 @@ export async function loginUsingCredentials(
 ) {
   console.info("Initializing a session using credentials...");
   const session: Session = { username, device_uuid: uuid };
-  
+
   const accounts = await login(session, password).catch(async (error) => {
     // Handle double authentication, if required.
     if (error instanceof DoubleAuthRequired) {
@@ -30,7 +30,7 @@ export async function loginUsingCredentials(
       const qcm = await initDoubleAuth(session);
       console.info("Double authentication required.");
       console.info("Reply to this question:", qcm.question);
-      
+
       for (const index in qcm.answers) {
         console.info(`[${index}]`, qcm.answers[index]);
       }
@@ -44,12 +44,12 @@ export async function loginUsingCredentials(
 
       if (!answerIndex) throw new Error("No answer provided.");
       const answer = qcm.answers[Number.parseInt(answerIndex)];
-      
+
       // Answer the question.
       if (await checkDoubleAuth(session, answer)) {
         console.info("Double authentication confirmed.");
       }
-      
+
       return login(session, password);
     }
     throw error;

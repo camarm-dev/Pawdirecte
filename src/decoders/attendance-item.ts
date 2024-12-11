@@ -14,6 +14,7 @@ export const decodeAttendanceItem = (item: any): AttendanceItem => {
     justified: item.justifie,
     justificationType: item.typeJustification,
     onlineJustification: item.justifieEd,
+    subjectName: item.matiere,
     todo: item.aFaire,
     kind: item.typeElement,
     displayDate:

@@ -7,7 +7,7 @@ export const decodeGradeValue = (value: string): GradeValue => {
       points: 0
     };
 
-  switch (value) {
+  switch (value.trim()) {
     case "Disp":
       return {
         kind: GradeKind.Exempted,

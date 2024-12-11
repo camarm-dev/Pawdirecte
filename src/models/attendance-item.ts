@@ -10,6 +10,7 @@ export type AttendanceItem = Readonly<{
   label: string;
   teacher: string;
   comment: string;
+  subjectName: string;
   justified: boolean;
   justificationType: string;
   onlineJustification: boolean;

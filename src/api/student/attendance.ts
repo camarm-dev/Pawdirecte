@@ -10,6 +10,7 @@ import {
 type AttendanceResponse = Readonly<{
   punishments: Array<AttendanceItem>;
   absences: Array<AttendanceItem>;
+  exemptions: Array<AttendanceItem>;
 }>;
 
 export const studentAttendance = async (

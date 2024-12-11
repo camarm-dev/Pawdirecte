@@ -1,5 +1,4 @@
 import { decode } from "js-base64";
-import { decodeString } from "~/core/base64";
 import { Request } from "~/core/request";
 import { decodeMesssagesList } from "~/decoders/messages-list";
 import {

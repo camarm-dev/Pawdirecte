@@ -18,6 +18,8 @@ type GradesResponse = {
 };
 
 /**
+ * @param session
+ * @param account
  * @param year "The year to fetch grades in YYYY format." SENSITIVE PARAMETER NOT ALL ACCOUNTS CAN DO THAT
  */
 export const studentGrades = async (

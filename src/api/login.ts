@@ -36,7 +36,7 @@ export const login = async (
       uuid: session.device_uuid,
       isReLogin: false,
       sesouvenirdemoi: true,
-      motdepasse: encodeURI(password)
+      motdepasse: encodeURIComponent(password)
     },
     session.token
   );

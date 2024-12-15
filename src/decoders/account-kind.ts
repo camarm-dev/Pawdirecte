@@ -1,11 +1,12 @@
 import { AccountKind, UnknownEnumValue } from "~/models";
 
 export const decodeAccountKind = (kind: any): AccountKind => {
-  switch (String(kind)) {
-    case "E":
-    case "1":
-      return AccountKind.STUDENT;
-    default:
-      throw new UnknownEnumValue("AccountKind", kind);
+  kind = String(kind);
+
+  // We assert that the value is a valid AccountKind value.
+  if (!Object.values(AccountKind).includes(kind)) {
+    throw new UnknownEnumValue("AccountKind", kind);
   }
+
+  return kind as AccountKind;
 };

@@ -1,7 +1,7 @@
 export const AccountKind = {
-  Student: "E",
-  Family1: "1",
-  Family2: "2"
+  Student: "E"
+  // Family1: "1",
+  // Family2: "2"
   // Staff: "A",
   // Teacher: "P"
 } as const;

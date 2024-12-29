@@ -3,7 +3,7 @@ import { decodeGradeValue } from "./grade-value";
 
 export const buildOverview = (data: any): GradesOverview => {
   const overview: GradesOverview = {};
-  const outOf = data.parametrage.moyenneSur;
+  const outOf = data.parametrage.moyenneSur || 20;
   const showStudentAverage = data.parametrage.moyenneGenerale;
   const showYearlyPeriod = data.parametrage.notePeriodeAnnuelle;
 
